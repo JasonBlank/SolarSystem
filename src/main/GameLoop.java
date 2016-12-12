@@ -11,7 +11,7 @@ public class GameLoop implements Runnable {
 	public static Window window;
 	private Thread thread;
 	private boolean running = false;
-	public static int ticksPSec = 300;
+	public static int ticksPSec = 60;
 	public static double secPDay = 1.0/20.0;
 	public static float scale = 500000; // 1 pixel equals 500.000 km, earth is around 300 pixels away from sun
 
@@ -39,7 +39,7 @@ public class GameLoop implements Runnable {
 			delta += (now - lastTime)/timePTick;
 			timer += now - lastTime;
 			lastTime = now;
-			if (true){
+			if (delta >= 1){
 				tick();
 				Drawing.render();
 				ticks++;
